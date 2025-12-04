@@ -42,7 +42,7 @@ The dataset is sourced from airport flight operations records. After cleaning, c
 * **Airlines table:** airline names and codes
 * **Calendar table:** date attributes (week, month, season)
 
-*(Add ERD here if you choose)* 
+*<img width="1022" height="831" alt="Screenshot 2025-12-04 150730" src="https://github.com/user-attachments/assets/a375a3cb-98ce-4b11-9e78-40b2b7be3e37" />* 
 
 ---
 
