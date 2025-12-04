@@ -1,3 +1,5 @@
+*![img](https://github.com/user-attachments/assets/57ad6660-e56d-46c4-831e-c0891c4e1406)*
+
 # Flight Punctuality Analysis (2015–2017) – Power BI Dashboard
 
 ### A Data Analytics Project by **Kamila Rojek**
