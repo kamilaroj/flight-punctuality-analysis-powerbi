@@ -34,7 +34,7 @@ Ziel: Verzögerungsmuster erkennen & operative Entscheidungen unterstützen.
 # Dieses Dashboard ermöglicht Führungskräften, Engpässe, saisonale Muster und airline-spezifische Verzögerungen sofort zu erkennen und operative Entscheidungen datenbasiert zu treffen.
 
  
-# Tech Stack: Power BI Desktop (inkl. Power Query & DAX) – komplette Datenaufbereitung, Modellierung und Visualisierung direkt in Power BI ohne externes SQL/Datenbank-Backend
+## Tech Stack: Power BI Desktop (inkl. Power Query & DAX) – komplette Datenaufbereitung, Modellierung und Visualisierung direkt in Power BI ohne externes SQL/Datenbank-Backend
 
 
 # Mehr Infos:
