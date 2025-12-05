@@ -62,15 +62,13 @@ Die wichtigsten Erkenntnisse und Empfehlungen strukturieren sich in vier Kategor
 
 Das Dataset stammt aus den operativen Flugdaten des Flughafens. Nach der Bereinigung wurden **stornierte und umgeleitete Flüge ausgeschlossen**, und „unpünktliche“ Flüge wurden gemäß Branchenstandard als Abweichung von **≥ 5 Minuten** definiert.
 
-**Datenquellen im Überblick:**
+### Datenquellen & Datenmodell
 
-- **Flights-Tabelle:** Flug-ID, Airline, Datum, Zeit, Arrival/Departure-Flag  
-- **Delays-Tabelle:** geplante vs. tatsächliche Zeiten, Delay-Ausmaß  
-- **Airlines-Tabelle:** Namen und Codes der Fluggesellschaften  
-- **Calendar-Tabelle:** Datum, Woche, Monat, Saison  
+- **`flights`** – Zentrale Tabelle mit allen Flügen von und nach Flughafen A (2015–2017). Enthält u. a. `flight_id`, Airline-Code (`op_carrier`), Route (`origin`, `dest`), geplante und tatsächliche Abflug- und Ankunftszeiten, Verspätungsmetriken (`dep_delay_abs`, `arr_delay_abs`, `abs_delay`, `unpunctual_delay`, `punctuality_status`) sowie abgeleitete Kalenderattribute (Jahr, Quartal, Monat, Woche, Wochentag, Stunde am Flughafen A).
+- **`unique_carriers`** – Lookup-Tabelle mit allen im Datensatz vorkommenden Airlines. Beinhaltet den Carrier-Code (`Code`) und den vollständigen Namen der Fluggesellschaft (`Description`) und ist über `flights.op_carrier = unique_carriers.Code` mit der Flugdaten-Tabelle verknüpft.
 
 
-*<img width="1022" height="831" alt="Screenshot 2025-12-04 150730" src="https://github.com/user-attachments/assets/a375a3cb-98ce-4b11-9e78-40b2b7be3e37" />* 
+*<img width="737" height="837" alt="Bildschirmfoto 2025-12-05 um 16 18 45" src="https://github.com/user-attachments/assets/a228e9b5-5b63-48d8-ab5e-947276dcb9a5" />* 
 
 ---
 
