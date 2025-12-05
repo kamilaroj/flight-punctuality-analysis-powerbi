@@ -35,6 +35,32 @@ Ziel: Verzögerungsmuster erkennen & operative Entscheidungen unterstützen.
 
  
 ## Tech Stack: Power BI Desktop (inkl. Power Query & DAX) – komplette Datenaufbereitung, Modellierung und Visualisierung direkt in Power BI ohne externes SQL/Datenbank-Backend
+### OLAP-Modell & Datenpipeline
+
+Im Rahmen des Abschlussprojekts habe ich ein holistisches OLAP-System aufgebaut, das den gesamten Lebenszyklus der Flugdaten am Los Angeles International Airport (LAX) abdeckt – von der Rohdatenabfrage bis zur Visualisierung in Power BI.
+
+1. **Datenaufnahme (PostgreSQL + CSV)**  
+   - Verbindung zur PostgreSQL-Datenbank `Flight_Data`, Tabelle `flights`, per benutzerdefinierter SQL-Query in Power BI.  
+   - Filter bereits auf Datenbankebene: Zeitraum **2015–2017**, nur Flüge **von/nach LAX**, ohne gestrichene oder umgeleitete Flüge (`cancelled = FALSE`, `diverted = FALSE`).  
+   - Einlesen der Referenztabelle `UNIQUE_CARRIERS.csv` mit Airline-Codes und -Namen und Verknüpfung über `flights.op_carrier = UNIQUE_CARRIERS.Code`.
+
+2. **Datenbereinigung & Transformation**  
+   - Entfernen nicht benötigter Spalten und Umgang mit fehlenden bzw. fehlerhaften Werten.  
+   - Konvertierung der Uhrzeiten aus dem numerischen Format `hhmm` in echte Zeitfelder (inkl. Sonderfall `2400`, der auf eine gültige Zeit knapp vor Mitternacht abgebildet wird).  
+   - Berechnung zusätzlicher Felder: absolute Verspätungen (Abflug/Ankunft), Klassifikation *pünktlich / unpünktlich* (Schwellwert ≥ 5 Minuten, zu früh und zu spät), Kennzeichnung *arrival/departure* sowie Kalenderattribute (Jahr, Quartal, Monat, Kalenderwoche, Wochentag, Stunde).
+
+3. **OLAP-Modellierung**  
+   - Aufbau eines analytischen Modells mit `flights` als zentraler Faktentabelle und `UNIQUE_CARRIERS` als Airline-Dimension.  
+   - Trennung von Messgrößen (z. B. Anzahl Flüge, Anteil unpünktlicher Flüge, durchschnittliche Unpünktlichkeit) und Analyseachsen (Airline, Richtung, Zeitraum, Tageszeit).  
+   - Vorbereitung der Daten für OLAP-Analysen zu den Kernfragen des Projekts: Top-3-Airlines nach Unpünktlichkeit, Entwicklung der Pünktlichkeit über die Zeit und Muster nach Jahr, Quartal, Monat, Kalenderwoche, Wochentag und Stunde.
+
+4. **Visualisierung & Data Storytelling in Power BI**  
+   - Laden des bereinigten Modells nach Power BI Desktop und Aufbau interaktiver Dashboards (Übersicht, Airline-Analyse, Zeit- und Saisonalitätsanalyse).  
+   - Einsatz von Slicern (Abflug vs. Ankunft), DAX-Measures und geeigneten Visualisierungen (z. B. Linien-, Balken- und KPI-Kacheln), um die Geschäftsanforderungen des Flughafens zu beantworten.  
+   - Verdichtung der Ergebnisse in einer ca. 15-minütigen Management-Präsentation mit Fokus auf Kontext, Narrativ und Handlungsempfehlungen.
+
+5. **Erweiterbarkeit**  
+   - Die Kombination aus SQL-Filterung und wiederverwendbaren Power-Query- und DAX-Schritten ist so gestaltet, dass zusätzliche Zeiträume (weitere Monate/Jahre) mit demselben Prozess eingespielt und nahtlos in das bestehende Modell integriert werden können.
 
 
 # Mehr Infos:
