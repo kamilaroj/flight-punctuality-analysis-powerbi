@@ -2,45 +2,73 @@
 
 # Flight Punctuality Analysis (2015–2017) – Power BI Dashboard
 
-### A Data Analytics Project by **Kamila Rojek**
+### Ein Data-Analytics-Projekt von **Kamila Rojek**
 
-Welcome!
-This repository contains an end-to-end data analytics project exploring flight punctuality at **Airport A** using historical data from **2015–2017**.
-The goal is to identify operational bottlenecks, uncover delay patterns, and provide **data-driven recommendations** for airport operations and planning teams.
+Willkommen!  
+Dieses Repository enthält ein End-to-End Data-Analytics-Projekt zur Analyse der Flugpünktlichkeit an **Airport A** auf Basis historischer Daten aus den Jahren **2015–2017**.  
+Ziel der Analyse ist es, **operative Engpässe zu identifizieren**, **Verspätungsmuster sichtbar zu machen** und **datenbasierte Empfehlungen** für das Operations- und Planungsteam des Flughafens abzuleiten.
 
-This README serves as a **business-focused case study** and a **technical overview** of the analysis.
+## Überblick – Was ist das Dashboard?
+
+Dieses Dashboard zeigt die Pünktlichkeit von 1,26 Mio. Flügen an Airport A.
+Wichtigster KPI: **70% der Flüge sind unpünktlich (≥ 5 Minuten Abweichung).**
+Ziel: Verzögerungsmuster erkennen & operative Entscheidungen unterstützen.
+
+## Was zeigt die Analyse?
+
+- Große Airlines verursachen >80% der Verspätungen → größter Hebel liegt bei ihnen.
+- Starke saisonale Schwankungen: Winter & Jahresende besonders kritisch.
+- Frühmorgens (2–4 Uhr) kommt es zu massiven Verspätungen, v. a. wegen verspäteter Ankünfte.
+- Wochen- und Wochentagsmuster sind stabil → Verzögerungen sind strukturell, nicht zufällig.
+- Das Dashboard liefert klare Zusammenhänge zwischen Airlines, Jahreszeiten, Wochen & Tageszeiten.
 
 
-# Project Background
+## Welche Entscheidungen unterstützt sie?
 
-Airport A is a major U.S. hub with more than **1.26 million arrivals and departures** during the 3-year period under review. The airport operates in a high-volume, capacity-constrained environment with dozens of domestic carriers.
+- Ressourcenplanung für Winter & Peak-Phasen
+- Enge Steuerung & Monitoring der Top-Airlines
+- Optimierung von Gate- und Turnaround-Prozessen
+- Verbesserte Arrival-Management-Strategien
+- Ableitung operativer SLAs für Airlines
 
-As a data analyst working for the airport’s Operations & Planning department, the goal is to:
+# Dieses Dashboard ermöglicht Führungskräften, Engpässe, saisonale Muster und airline-spezifische Verzögerungen sofort zu erkennen und operative Entscheidungen datenbasiert zu treffen.
 
-* understand structural causes of flight delays
-* identify performance differences between airlines
-* uncover seasonal and hourly punctuality patterns
-* support operational decision-making with measurable insights
+ 
+# Tech Stack: Power BI Desktop (inkl. Power Query & DAX) – komplette Datenaufbereitung, Modellierung und Visualisierung direkt in Power BI ohne externes SQL/Datenbank-Backend
 
-Insights and recommendations are provided in four key areas:
 
-**Category 1:** Airline Performance //
-**Category 2:** Long-term & Seasonal Trends //
-**Category 3:** Weekly & Daily Patterns //
-**Category 4:** Hourly Delay Dynamics & Arrival vs. Departure Effects
+# Mehr Infos:
+# Projekt-Hintergrund
+
+Airport A ist ein großes US-Drehkreuz mit mehr als **1,26 Millionen An- und Abflügen** im betrachteten Zeitraum (2015–2017). Der Flughafen operiert in einem hochfrequentierten, kapazitätskritischen Umfeld mit zahlreichen nationalen Fluggesellschaften.
+
+Als Data Analyst im Bereich **Operations & Planning** bestand das Ziel der Analyse darin:
+
+- strukturelle Ursachen für Flugverspätungen zu verstehen  
+- Leistungsunterschiede zwischen Airlines zu identifizieren  
+- saisonale sowie stundenbezogene Pünktlichkeitsmuster sichtbar zu machen  
+- operative Entscheidungen durch klare, messbare Insights zu unterstützen  
+
+Die wichtigsten Erkenntnisse und Empfehlungen strukturieren sich in vier Kategorien:
+
+**Kategorie 1:** Performance der Fluggesellschaften  
+**Kategorie 2:** Langfristige & saisonale Entwicklungen  
+**Kategorie 3:** Muster nach Wochen & Wochentagen  
+**Kategorie 4:** Stündliche Delay-Dynamiken & Unterschiede zwischen Ankunft und Abflug  
 
 ---
 
-# Data Structure & Initial Checks
+# Datenstruktur & Erste Prüfungen
 
-The dataset is sourced from airport flight operations records. After cleaning, cancelled and diverted flights were excluded, and “unpunctual” flights were defined as deviations of **≥ 5 minutes**.
+Das Dataset stammt aus den operativen Flugdaten des Flughafens. Nach der Bereinigung wurden **stornierte und umgeleitete Flüge ausgeschlossen**, und „unpünktliche“ Flüge wurden gemäß Branchenstandard als Abweichung von **≥ 5 Minuten** definiert.
 
-**Data Source Structure:**
+**Datenquellen im Überblick:**
 
-* **Flights table:** flight ID, airline, date, time, arrival/departure flag
-* **Delays table:** scheduled vs. actual time, delay magnitude
-* **Airlines table:** airline names and codes
-* **Calendar table:** date attributes (week, month, season)
+- **Flights-Tabelle:** Flug-ID, Airline, Datum, Zeit, Arrival/Departure-Flag  
+- **Delays-Tabelle:** geplante vs. tatsächliche Zeiten, Delay-Ausmaß  
+- **Airlines-Tabelle:** Namen und Codes der Fluggesellschaften  
+- **Calendar-Tabelle:** Datum, Woche, Monat, Saison  
+
 
 *<img width="1022" height="831" alt="Screenshot 2025-12-04 150730" src="https://github.com/user-attachments/assets/a375a3cb-98ce-4b11-9e78-40b2b7be3e37" />* 
 
@@ -48,100 +76,106 @@ The dataset is sourced from airport flight operations records. After cleaning, c
 
 # Executive Summary
 
-Airport A faces **significant punctuality challenges**, with **70.15%** of flights deviating from schedule by ≥ 5 minutes.
-Three insights stand out:
+Airport A weist **erhebliche Pünktlichkeitsprobleme** auf: **70,15 %** aller Flüge weichen um ≥ 5 Minuten vom Zeitplan ab. Drei zentrale Erkenntnisse stechen hervor:
 
-1. **Large network carriers drive the majority of delays** (Southwest, American, SkyWest = >80% of all unpunctual flights).
-2. **Delays follow a strong seasonal pattern**, with peaks in winter and year-end holidays.
-3. **Night and early-morning hours show extreme delay spikes**, especially for arrivals, driven by cascading inbound delays.
+1. **Große Netzwerk-Fluggesellschaften verursachen den Großteil aller Verspätungen**  
+   (Southwest, American, SkyWest = >80 % aller unpünktlichen Flüge).
 
-These findings highlight structural operational pressures that require data-driven planning, resource allocation, and stronger coordination with major carriers.
+2. **Die Verspätungen folgen einem ausgeprägten saisonalen Muster**,  
+   mit starken Spitzen im Winter und in den Feiertagsmonaten zum Jahresende.
+
+3. **In den Nacht- und frühen Morgenstunden treten extreme Verspätungen auf**,  
+   insbesondere bei Ankünften, verursacht durch sogenannte *cascading inbound delays*.
+
+Diese Ergebnisse verdeutlichen strukturelle operative Belastungen, die eine **datenbasierte Planung**, eine gezieltere **Ressourcenallokation** und eine intensivere **Koordination mit den wichtigsten Fluggesellschaften** erfordern.
 
 *<img width="1718" height="461" alt="Bildschirmfoto 2025-12-04 um 14 09 14" src="https://github.com/user-attachments/assets/2ec5e41f-119b-41a1-9b29-fa379341dc09" />*
-
----
 
 # Insights Deep Dive
 
 ---
 
-## **Category 1: Airline Performance**
+## **Kategorie 1: Performance der Fluggesellschaften**
 
-**Insight 1:** Large carriers (Southwest, American, SkyWest) account for **over 80%** of all unpunctual flights.
-**Insight 2:** Smaller airlines such as Envoy, Frontier and JetBlue show **extreme average delays** of up to **40 minutes**, but represent only **3.5%** of all cases.
-**Insight 3:** Network airlines with high volume show mid-range delays but dominate the airport’s overall reliability picture.
-**Insight 4:** Performance differences suggest that **operational leverage** lies primarily with the top 5 airlines.
+- **Insight 1:** Große Airlines (Southwest, American, SkyWest) sind für **über 80 %** aller unpünktlichen Flüge verantwortlich.  
+- **Insight 2:** Kleinere Airlines wie Envoy, Frontier und JetBlue weisen **extreme durchschnittliche Verspätungen** von bis zu **40 Minuten** auf, stellen jedoch nur **3,5 %** aller Fälle dar.  
+- **Insight 3:** Netzwerk-Airlines mit hohem Flugvolumen zeigen mittlere Verzögerungswerte, prägen jedoch das **gesamte Zuverlässigkeitsprofil** des Flughafens am stärksten.  
+- **Insight 4:** Die Leistungsunterschiede verdeutlichen, dass der **größte operative Hebel** bei den Top-5-Airlines liegt.  
+
 
 *<img width="1486" height="447" alt="Bildschirmfoto 2025-12-04 um 14 12 00" src="https://github.com/user-attachments/assets/d7b0110d-2d77-445d-a46f-9180f8d27d31" />*
 *<img width="1496" height="864" alt="Bildschirmfoto 2025-12-04 um 14 12 16" src="https://github.com/user-attachments/assets/4704948a-038f-41ab-a872-cc0e71343d64" />*
 
 ---
 
-## **Category 2: Annual & Seasonal Trends**
+## **Kategorie 2: Jährliche & Saisonale Trends**
 
-**Insight 1:** Punctuality worsened by nearly **5 percentage points** from 2015 to 2017.
-**Insight 2:** Clear U-shaped seasonality: improvements in spring/summer, sharp declines in fall/winter.
-**Insight 3:** December consistently shows the **highest unpunctuality (>72%)**.
-**Insight 4:** Findings indicate **increasing structural strain**: traffic growth, capacity limits, and winter operations.
+**Insight 1:** Die Pünktlichkeit verschlechterte sich zwischen 2015 und 2017 um nahezu **5 Prozentpunkte**.  
+**Insight 2:** Es zeigt sich eine ausgeprägte **U-förmige Saisonalität**: Verbesserungen im Frühling/Sommer, deutliche Einbrüche im Herbst/Winter.  
+**Insight 3:** Der Dezember weist durchgehend die **höchste Unpünktlichkeit (>72 %)** auf.  
+**Insight 4:** Die Ergebnisse deuten auf eine **zunehmende strukturelle Belastung** hin – verursacht durch steigendes Verkehrsaufkommen, Kapazitätsgrenzen und winterbedingte Betriebsprozesse.  
+
 
 *<img width="1505" height="868" alt="Bildschirmfoto 2025-12-04 um 14 14 35" src="https://github.com/user-attachments/assets/2f4b329a-a008-4666-a46d-0addbe11dace" />*
 
----
+## **Kategorie 3: Wöchentliche & Tägliche Muster**
 
-## **Category 3: Weekly & Daily Patterns**
+- **Insight 1:** Die Wochen **50–52** zeigen den deutlichsten Peak mit **über 75 %** Unpünktlichkeit.  
+- **Insight 2:** Im restlichen Jahresverlauf bleibt die Unpünktlichkeit relativ stabil (ca. **70 %**).  
+- **Insight 3:** Es gibt **keine nennenswerten Unterschiede zwischen den Wochentagen** → die Verspätungen sind **nicht kalenderbedingt**, sondern strukturell.  
+- **Insight 4:** Die gleichbleibenden Muster über die Wochentage hinweg weisen auf **zugrunde liegende operative Engpässe** hin.  
 
-**Insight 1:** Weeks 50–52 experience the **highest peak** at **>75%** unpunctuality.
-**Insight 2:** The rest of the year remains relatively stable (~70%).
-**Insight 3:** No meaningful differences across weekdays → delays are **not calendar-driven**, but structural.
-**Insight 4:** The consistency across weekdays highlights underlying operational bottlenecks.
 
 *<img width="1498" height="859" alt="Bildschirmfoto 2025-12-04 um 14 15 32" src="https://github.com/user-attachments/assets/341e124b-e246-489f-bfa9-b9e188c1a86a" />*
 
 ---
 
-## **Category 4: Hourly Delay Dynamics**
+## **Kategorie 4: Stündliche Delay-Dynamiken**
 
-**Insight 1:** Early morning hours (2–4 AM) show **100% unpunctuality**.
-**Insight 2:** Arrival flights suffer significantly more from cascading delays than departures.
-**Insight 3:** Average delay durations exceed **200 minutes** during night peaks.
-**Insight 4:** After early morning peaks, punctuality stabilizes around **73%**, with delays averaging **~40 minutes**.
+- **Haupt-Insight 1:** Detaillierte Analyse der Verspätungsmuster nach Tageszeit, einschließlich Zeitfenster, quantitativer Werte und erkennbarer Trends.  
+
+- **Haupt-Insight 2:** Präzisere Beschreibung der Delay-Entwicklung über spezifische Stundenbereiche hinweg, mit Fokus auf Spitzenlasten und deren Ursachen.  
+
+- **Haupt-Insight 3:** Darstellung von Durchschnitten, Extremwerten und Zusammenhängen zwischen Ankunfts- und Abflugsverhalten über den Tagesverlauf.  
+
+- **Haupt-Insight 4:** Vertiefende Analyse zur Erklärung struktureller Muster, inkl. Vergleich von Zeiträumen, Trendänderungen und operativen Auswirkungen.  
 
 *<img width="1052" height="600" alt="Bildschirmfoto 2025-12-04 um 14 23 34" src="https://github.com/user-attachments/assets/940c0a38-b634-4c71-846a-bc8cd56bd716" />*
 
 ---
 
-# Recommendations
+# Empfehlungen
 
-Based on the findings, the airport operations and planning team should consider:
+Basierend auf den Analyseergebnissen sollte das Operations- und Planungsteam des Flughafens folgende Maßnahmen in Betracht ziehen:
 
-1. **Prioritizing operational coordination with major carriers**, especially those contributing the highest volume of delays.
-2. **Implementing winter operations planning**, including additional resources for ground handling and deicing.
-3. **Developing a predictive model** for weeks 50–52 and December peak travel.
-4. **Strengthening arrival management** to reduce cascading inbound delays.
-5. **Optimizing gate and turnaround scheduling** during early-morning peak disruption windows.
-
----
-
-# Assumptions and Caveats
-
-To ensure analytical clarity, several assumptions were applied:
-
-* Cancelled and diverted flights were excluded due to low operational comparability.
-* “Unpunctual” was defined as ≥ 5 minutes, following industry standards.
-* Delay duration outliers over 500 minutes were reviewed and retained unless clearly erroneous.
-* Time records were normalized to local airport time.
-* Early-morning spikes were assumed to be due to inbound overnight delays (consistent with operational patterns).
+1. **Priorisierung der operativen Zusammenarbeit mit den großen Airlines**, insbesondere jenen, die das höchste Verspätungsvolumen verursachen.  
+2. **Optimierung der Winterbetriebsplanung**, einschließlich zusätzlicher Ressourcen für Bodenabfertigung und Enteisung.  
+3. **Entwicklung eines Vorhersagemodells** für die besonders kritischen Wochen 50–52 sowie den Dezember-Reiseverkehr.  
+4. **Stärkung des Arrival-Managements**, um kaskadierende Verspätungen eintreffender Flüge zu reduzieren.  
+5. **Optimierung der Gate- und Turnaround-Planung** während der frühen Morgenstunden, in denen Störungen besonders ausgeprägt auftreten.  
 
 ---
 
-# Additional Resources
+# Annahmen und Einschränkungen
 
-* **Power BI Dashboard:** [link]
-* **Raw PDF Report:** included in this repository
-* **SQL Scripts (Cleaning + Exploratory Checks):** [link, if applicable]
+Zur Sicherstellung einer klaren analytischen Grundlage wurden folgende Annahmen getroffen:
+
+- Stornierte und umgeleitete Flüge wurden aufgrund mangelnder Vergleichbarkeit ausgeschlossen.  
+- „Unpünktlich“ wurde gemäß Branchenstandard als Abweichung von **≥ 5 Minuten** definiert.  
+- Verspätungswerte über **500 Minuten** wurden geprüft und nur ausgeschlossen, wenn sie eindeutig fehlerhaft waren.  
+- Alle Zeitangaben wurden auf die lokale Flughafenzeit normalisiert.  
+- Spitzen in den frühen Morgenstunden wurden als Folge verspäteter Ankünfte aus der Nacht interpretiert (kaskadierende Inbound-Delays).  
 
 ---
 
-# Thank You!
+# Weitere Ressourcen
+
+- **Power BI Dashboard:** [Link]  
+- **PDF-Report:** im Repository enthalten
+
+---
+
+# Vielen Dank!
+
 
 
