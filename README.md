@@ -156,13 +156,13 @@ Diese Ergebnisse verdeutlichen strukturelle operative Belastungen, die eine **da
 
 ## **Kategorie 4: Stündliche Delay-Dynamiken**
 
-- **Haupt-Insight 1:** Detaillierte Analyse der Verspätungsmuster nach Tageszeit, einschließlich Zeitfenster, quantitativer Werte und erkennbarer Trends.  
+- **Insight 1:** Detaillierte Analyse der Verspätungsmuster nach Tageszeit, einschließlich Zeitfenster, quantitativer Werte und erkennbarer Trends.  
 
-- **Haupt-Insight 2:** Präzisere Beschreibung der Delay-Entwicklung über spezifische Stundenbereiche hinweg, mit Fokus auf Spitzenlasten und deren Ursachen.  
+- **Insight 2:** Präzisere Beschreibung der Delay-Entwicklung über spezifische Stundenbereiche hinweg, mit Fokus auf Spitzenlasten und deren Ursachen.  
 
-- **Haupt-Insight 3:** Darstellung von Durchschnitten, Extremwerten und Zusammenhängen zwischen Ankunfts- und Abflugsverhalten über den Tagesverlauf.  
+- **Insight 3:** Darstellung von Durchschnitten, Extremwerten und Zusammenhängen zwischen Ankunfts- und Abflugsverhalten über den Tagesverlauf.  
 
-- **Haupt-Insight 4:** Vertiefende Analyse zur Erklärung struktureller Muster, inkl. Vergleich von Zeiträumen, Trendänderungen und operativen Auswirkungen.  
+- **Insight 4:** Vertiefende Analyse zur Erklärung struktureller Muster, inkl. Vergleich von Zeiträumen, Trendänderungen und operativen Auswirkungen.  
 
 *<img width="1052" height="600" alt="Bildschirmfoto 2025-12-04 um 14 23 34" src="https://github.com/user-attachments/assets/940c0a38-b634-4c71-846a-bc8cd56bd716" />*
 
