@@ -93,8 +93,7 @@ Das Dataset stammt aus den operativen Flugdaten des Flughafens. Nach der Bereini
 - **`flights`** – Zentrale Tabelle mit allen Flügen von und nach Flughafen A (2015–2017). Enthält u. a. `flight_id`, Airline-Code (`op_carrier`), Route (`origin`, `dest`), geplante und tatsächliche Abflug- und Ankunftszeiten, Verspätungsmetriken (`dep_delay_abs`, `arr_delay_abs`, `abs_delay`, `unpunctual_delay`, `punctuality_status`) sowie abgeleitete Kalenderattribute (Jahr, Quartal, Monat, Woche, Wochentag, Stunde am Flughafen A).
 - **`unique_carriers`** – Lookup-Tabelle mit allen im Datensatz vorkommenden Airlines. Beinhaltet den Carrier-Code (`Code`) und den vollständigen Namen der Fluggesellschaft (`Description`) und ist über `flights.op_carrier = unique_carriers.Code` mit der Flugdaten-Tabelle verknüpft.
 
-
-*<img width="737" height="837" alt="Bildschirmfoto 2025-12-05 um 16 18 45" src="https://github.com/user-attachments/assets/a228e9b5-5b63-48d8-ab5e-947276dcb9a5" />* 
+*<img width="848" height="664" alt="Portfolio_Power_BI" src="https://github.com/user-attachments/assets/f5b3de46-e93d-457b-8e04-628d1583fd2a" />*
 
 ---
 
