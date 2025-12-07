@@ -1,4 +1,5 @@
-*![img](https://github.com/user-attachments/assets/57ad6660-e56d-46c4-831e-c0891c4e1406)*
+*<img width="1366" height="768" alt="Design ohne Titel" src="https://github.com/user-attachments/assets/2f3d22b3-daad-45d5-9bef-56bae1b3f3ad" />*
+
 
 # Flight Punctuality Analysis (2015–2017) – Power BI Dashboard
 
